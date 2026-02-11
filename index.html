@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tanu & Subho · vintage love</title>
-  <!-- soft, vintage aesthetic · no outside dependencies -->
+  <!-- soft, vintage aesthetic · with PHOTO ANIMATIONS 😭✨ -->
   <style>
     /* -------------------------------
        VINTAGE / AESTHETIC HEARTBEAT
@@ -16,11 +16,11 @@
     }
 
     body {
-      background: #fef7e9;   // old paper base
+      background: #fef7e9;
       background-image: 
         linear-gradient(rgba(200, 170, 140, 0.1) 1px, transparent 1px),
         linear-gradient(90deg, rgba(200, 170, 140, 0.1) 1px, transparent 1px);
-      background-size: 40px 40px;   // subtle canvas texture
+      background-size: 40px 40px;
       font-family: 'Courier New', 'Times New Roman', serif;
       display: flex;
       justify-content: center;
@@ -40,11 +40,10 @@
                   inset 0 0 0 1px rgba(255, 245, 235, 0.9);
       border: 1px solid #d8c4b0;
       padding: 2.5rem 2rem;
-      border-radius: 32px 8px 32px 8px;   // whimsical vintage touch
+      border-radius: 32px 8px 32px 8px;
       position: relative;
     }
 
-    /* handmade stamp / wax seal effect (subtle) */
     .vintage-frame::after {
       content: "✧  ☽  ✧";
       position: absolute;
@@ -58,7 +57,6 @@
       pointer-events: none;
     }
 
-    /* title — hand written vibe */
     .handwritten-title {
       font-size: 2.5rem;
       font-weight: 400;
@@ -84,11 +82,11 @@
       border: 1px solid #c4a392;
     }
 
-    /* --- photo gallery vintage grid --- */
+    /* ---------- 😭✨ BEAUTIFUL PHOTO ANIMATIONS ✨😭 ---------- */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1.5rem;
+      gap: 1.8rem;
       margin: 2.5rem 0 2rem;
       padding: 0.5rem;
     }
@@ -98,18 +96,32 @@
       padding: 0.8rem 0.8rem 1.2rem 0.8rem;
       box-shadow: 8px 8px 0 rgba(170, 140, 120, 0.2);
       border: 1px solid #dac0ac;
-      transform: rotate(0.5deg);
-      transition: all 0.25s ease;
       border-radius: 4px 20px 4px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
+      overflow: hidden;
+      
+      /* --- BASE ANIMATION: soft floating --- */
+      animation: floatVintage 4s infinite ease-in-out;
+      transition: all 0.3s ease;
     }
 
-    .photo-card:hover {
-      transform: rotate(0deg) scale(1.02);
-      box-shadow: 12px 12px 0 rgba(140, 100, 80, 0.15);
-      border-color: #b38670;
+    /* DIFFERENT FLOAT SPEEDS FOR EACH PHOTO (7 unique animations) 😭 */
+    .photo-card:nth-child(1) { animation-delay: 0s; animation-duration: 4.2s; }
+    .photo-card:nth-child(2) { animation-delay: 0.3s; animation-duration: 4.7s; }
+    .photo-card:nth-child(3) { animation-delay: 0.6s; animation-duration: 5.1s; }
+    .photo-card:nth-child(4) { animation-delay: 0.9s; animation-duration: 4.5s; }
+    .photo-card:nth-child(5) { animation-delay: 1.2s; animation-duration: 5.4s; }
+    .photo-card:nth-child(6) { animation-delay: 1.5s; animation-duration: 4.9s; }
+    .photo-card:nth-child(7) { animation-delay: 1.8s; animation-duration: 5.6s; }
+
+    /* ✨ MAIN FLOATING EFFECT — like polaroids drifting in memory ✨ */
+    @keyframes floatVintage {
+      0% { transform: translateY(0px) rotate(0.5deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
+      100% { transform: translateY(0px) rotate(0.5deg); }
     }
 
     .photo-card img {
@@ -118,12 +130,52 @@
       object-fit: cover;
       border-radius: 4px 16px 4px 16px;
       border: 2px solid #eadbd0;
-      filter: sepia(0.4) contrast(0.95) brightness(1.05);
-      transition: filter 0.4s;
+      
+      /* --- 😭 SOFT GLOW & SEPIA ANIMATIONS --- */
+      filter: sepia(0.5) contrast(0.95) brightness(1.05);
+      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation: breatheGlow 5s infinite alternate;
     }
 
-    .photo-card img:hover {
-      filter: sepia(0.2) contrast(1.02) brightness(1.08);
+    /* ✨ BREATHING GLOW — like old photograph coming to life ✨ */
+    @keyframes breatheGlow {
+      0% { filter: sepia(0.5) contrast(0.95) brightness(1.05); box-shadow: 0 0 0 rgba(200, 160, 140, 0); }
+      100% { filter: sepia(0.3) contrast(1.02) brightness(1.15); box-shadow: 0 0 15px rgba(200, 140, 120, 0.3); }
+    }
+
+    /* 😭✨ HOVER — EXTRA MAGIC ✨😭 */
+    .photo-card:hover {
+      animation-play-state: paused;
+      transform: scale(1.03) rotate(0deg) !important;
+      box-shadow: 15px 15px 0 rgba(120, 80, 60, 0.2), 0 0 25px rgba(255, 200, 180, 0.5);
+      border-color: #b38670;
+      transition: all 0.3s ease;
+    }
+
+    .photo-card:hover img {
+      filter: sepia(0.2) contrast(1.05) brightness(1.2);
+      animation-play-state: paused;
+      border-color: #c49a81;
+    }
+
+    /* 🎞️ VINTAGE FILM GRAIN OVERLAY (subtle animation) */
+    .photo-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-radial-gradient(circle at 20% 30%, rgba(255,255,240,0.05) 0px, transparent 2px);
+      pointer-events: none;
+      opacity: 0.3;
+      animation: grainShift 8s infinite linear;
+      border-radius: 4px 20px 4px 20px;
+    }
+
+    @keyframes grainShift {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 20% 30%; }
     }
 
     .polaroid-caption {
@@ -136,9 +188,17 @@
       padding-top: 8px;
       width: 100%;
       text-align: center;
+      position: relative;
+      z-index: 5;
+      animation: captionFade 3s infinite alternate;
     }
 
-    /* --- love letter — well hand written, lined paper illusion --- */
+    @keyframes captionFade {
+      0% { opacity: 0.8; letter-spacing: 1.5px; }
+      100% { opacity: 1; letter-spacing: 2.2px; }
+    }
+
+    /* --- letter and other styles (unchanged, beautiful) --- */
     .letter-container {
       background: #fff9f1;
       padding: 2.2rem 1.8rem;
@@ -151,7 +211,6 @@
       border-radius: 0 24px 0 24px;
     }
 
-    /* imitation of handwriting lines — soft */
     .letter-content {
       background: repeating-linear-gradient(
         rgba(235, 215, 200, 0.2) 0px,
@@ -179,6 +238,13 @@
     .emoji-large {
       font-size: 1.8rem;
       margin-right: 6px;
+      animation: heartBeat 2s infinite;
+    }
+
+    @keyframes heartBeat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
 
     .signature {
@@ -191,7 +257,6 @@
       padding-top: 0.8rem;
     }
 
-    /* audio player — vintage mini, discreet */
     .music-box {
       display: flex;
       justify-content: flex-end;
@@ -206,18 +271,6 @@
       color: #5a3f33;
     }
 
-    .music-box span {
-      font-size: 1.3rem;
-    }
-
-    audio {
-      opacity: 0.8;
-      filter: sepia(0.6) grayscale(0.2) brightness(0.9);
-      height: 36px;
-      width: 200px;
-    }
-
-    /* small hand-drawn elements */
     .floating-heart {
       font-size: 1.6rem;
       display: inline-block;
@@ -240,7 +293,6 @@
       padding-top: 24px;
     }
 
-    /* responsiveness */
     @media (max-width: 600px) {
       .vintage-frame { padding: 1.5rem; }
       .handwritten-title { font-size: 2rem; }
@@ -256,41 +308,41 @@
       <br><span>🧡  Subho’s heart, all yours  🧡</span>
     </div>
 
-    <!-- === 7 PHOTOS – vintage polaroid aesthetic, with sepia & animations === -->
+    <!-- === 😭✨ 7 PHOTOS WITH DREAMY ANIMATIONS — each one floats, glows, breathes ✨😭 === -->
     <div class="gallery">
-      <!-- photo 1 · dreamy -->
+      <!-- photo 1 · dreamy · floats slowly -->
       <div class="photo-card">
-        <img src="photo6.jpg" alt="Tanu memory 1">
+        <img src="photo6.jpg">
         <div class="polaroid-caption">🌸 2 years ago · crush</div>
       </div>
-      <!-- photo 2 · soft smile -->
+      <!-- photo 2 · soft smile · different delay -->
       <div class="photo-card">
-        <img src="photo7.jpg" alt="Tanu memory 2">
+        <img src="photo7.jpg"
         <div class="polaroid-caption">🌼 you looked away</div>
       </div>
-      <!-- photo 3 · golden hour -->
+      <!-- photo 3 · golden hour · glows gently -->
       <div class="photo-card">
-        <img src="photo3.jpg" alt="Tanu memory 3">
-        <div class="polaroid-caption">✨ golden light</div>
+        <img src="photo3.jpg"
+        <div class="polaroid-caption">✨ golden pic🎀</div>
       </div>
-      <!-- photo 4 · candid -->
+      <!-- photo 4 · candid · breathes soft -->
       <div class="photo-card">
-        <img src="photo2.jpg" alt="Tanu memory 4">
+        <img src="photo5.jpg
         <div class="polaroid-caption">🍂 that day</div>
       </div>
-      <!-- photo 5 · gentle -->
+      <!-- photo 5 · gentle · floating dream -->
       <div class="photo-card">
-        <img src="photo1.jpg" alt="Tanu memory 5">
+        <img src="photo1.jpg"
         <div class="polaroid-caption">💭 made me shy</div>
       </div>
-      <!-- photo 6 · dream -->
+      <!-- photo 6 · dream · vintage haze -->
       <div class="photo-card">
-        <img src="photo4.jpg" alt="Tanu memory 6">
-        <div class="polaroid-caption">🌙 5 months ago</div>
+        <img src="photo4.jpg"
+        <div class="polaroid-caption">🌙 6 months ago</div>
       </div>
-      <!-- photo 7 · my favorite -->
+      <!-- photo 7 · my favorite · most special glow -->
       <div class="photo-card">
-        <img src="photo5.jpg" alt="Tanu memory 7">
+        <img src="photo2.jpg"
         <div class="polaroid-caption">🧸 my gf now</div>
       </div>
     </div>
@@ -303,21 +355,18 @@
         <p>I still remember the first time I saw you — time didn’t stop, it just became softer, warmer. You had this light, like vintage film; golden and unforgettable. Every photo of you holds a whole season of feelings. I looked at you from afar, wrote your name in my notebook, and hoped.💘</p>
         <p>Now I get to hold your hand, call you mine, and smile at you without looking away. Tanu — Ainoor — you are my yesterday’s wish and today’s sweetest truth. These 7 photos are pieces of my memory, but you in my life is the whole gallery. 🌷🎞️</p>
         <p>I made this little world for you — with our song, ‘those eyes’, and papery textures, and all the vintage warmth you love. Because loving you feels like an old poem, a sepia photograph, a melody that never fades. </p>
+        <p><span style="font-size:1.5rem;">😭❤️</span> Look at the photos — they float, they glow, they breathe. Just like my heart does when I see you. Each one has its own gentle dance, because you deserve magic in every memory. <span style="font-size:1.5rem;">✨🥺</span></p>
         <p>Yours, in every lifetime,<br><span class="signature">Subho 🩵</span></p>
       </div>
     </div>
 
-    <!-- === BG MUSIC: "those eyes" · hidden autoplay with vintage controls === -->
+    <!-- === BG MUSIC: "those eyes" · vintage controls === -->
     <div class="music-box">
       <span class="floating-heart">🎶</span>
       <span style="font-family: 'Courier New'; font-weight: 600;">those eyes · our song</span>
-      <!-- bg music "Those Eyes" – audio file from Pixabay (free, melancholic piano) 
-           loops softly, vintage vibes. Autoplay + low volume -->
       <audio controls autoplay loop>
-        <!-- using a piano instrumental that matches "those eyes" mood – named accordingly.
-             this is a copyright‑free melancholy piano track from Pixabay -->
         <source src="https://cdn.pixabay.com/download/audio/2022/02/22/audio_d1718ab41b.mp3?filename=melancholy-piano-116941.mp3" type="audio/mpeg">
-        Your browser does not support the audio element. play "Those Eyes" in your heart.
+        Your browser does not support the audio element.
       </audio>
       <span>🎧 ✧</span>
     </div>
@@ -325,38 +374,25 @@
     <!-- tiny footnote, emojis, vintage credit -->
     <div class="credit">
       <span>☕️  🕯️  for Tanu, from Subho  🕯️  ☕️</span>
-      <br><span style="font-size: 1.2rem;">🧁     made with 7 photos + 2 years of crush + 5 months of love     🧁</span>
+      <br><span style="font-size: 1.2rem;">🧁     made with 7 photos + 2 years of crush + 5 months of love + ANIMATIONS 😭✨     🧁</span>
     </div>
   </div>
 
-  <!-- minor auto adjust: ensure images are unique (placecats generates different cats; but they represent HER photos) 
-       we replace via alt text; BUT you MUST replace src with TANU's real photos when deploying. 
-       For demonstration I use placeholder cat images (vintage vibe) — just swap the URLs with Tanu’s 7 pictures. -->
   <script>
     (function() {
-      // subtle vintage animation: add tiny random rotation to each polaroid on load
+      // subtle vintage rotation on load
       const cards = document.querySelectorAll('.photo-card');
       cards.forEach((card, index) => {
         const rot = (index % 2 === 0 ? 0.7 : -0.5) + (Math.random() * 0.6 - 0.3);
         card.style.transform = `rotate(${rot}deg)`;
-        card.style.transition = 'transform 0.25s ease, box-shadow 0.3s';
       });
 
-      // message for gf: gentle console love letter (shh, little detail)
-      console.log("%c🌸 For Tanu (Ainoor) — these 7 photos are placeholders. replace with her real images 🌸", "background: #fbe9e0; color: #6e4f3a; font-size: 12px; padding: 6px; border-radius: 8px;");
-      console.log("%c💌 Subho built this vintage world for you. love letter inside. 💌", "background: #f2dfd1; color: #4f352b; font-size: 13px;");
+      console.log("%c😭✨ TANU — YOUR PHOTOS ARE FLOATING, GLOWING, BREATHING ✨😭", "background: #fbe9e0; color: #6e4f3a; font-size: 14px; padding: 8px; border-radius: 8px;");
+      console.log("%c💌 SUBHO ADDED 5 LAYERS OF ANIMATION JUST FOR YOU 💌", "background: #f2dfd1; color: #4f352b; font-size: 13px;");
+      
+      // Add extra love message
+      console.log("%c✨ Each photo dances differently. Just like my heart when you smile. ✨", "background: #ffe9dd; color: #7a5a48; font-size: 12px;");
     })();
   </script>
-
-  <!-- instructions to replace photos directly inside GitHub -->
-  <!-- 
-    ★ GITHUB EASIEST WAY ★ 
-    1. save this file as index.html 
-    2. create a new repository, upload index.html + your 7 Tanu photos (rename image1.jpg, etc)
-    3. edit the img src="..." to point to your photos, e.g. src="tanu1.jpg"
-    4. commit & push; go to settings → pages → deploy from main branch 
-    5. after 1 min, your site is LIVE: https://yourusername.github.io/repo-name
-    (no extra tools needed! pure html/css)
-  -->
 </body>
 </html>
