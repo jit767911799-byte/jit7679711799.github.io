@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tanu & Subho · vintage love</title>
+  <!-- soft, vintage aesthetic · no outside dependencies -->
+  <style>
+    /* -------------------------------
+       VINTAGE / AESTHETIC HEARTBEAT
+    ------------------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fef7e9;   // old paper base
+      background-image: 
+        linear-gradient(rgba(200, 170, 140, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200, 170, 140, 0.1) 1px, transparent 1px);
+      background-size: 40px 40px;   // subtle canvas texture
+      font-family: 'Courier New', 'Times New Roman', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      color: #3e2c23;
+    }
+
+    .vintage-frame {
+      max-width: 1100px;
+      width: 100%;
+      background: rgba(255, 245, 235, 0.7);
+      backdrop-filter: blur(3px);
+      box-shadow: 0 20px 40px rgba(60, 40, 20, 0.15), 
+                  0 4px 12px rgba(0,0,0,0.05),
+                  inset 0 0 0 1px rgba(255, 245, 235, 0.9);
+      border: 1px solid #d8c4b0;
+      padding: 2.5rem 2rem;
+      border-radius: 32px 8px 32px 8px;   // whimsical vintage touch
+      position: relative;
+    }
+
+    /* handmade stamp / wax seal effect (subtle) */
+    .vintage-frame::after {
+      content: "✧  ☽  ✧";
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+      font-size: 1.8rem;
+      color: #ab8c7a;
+      opacity: 0.25;
+      letter-spacing: 12px;
+      transform: rotate(-5deg);
+      pointer-events: none;
+    }
+
+    /* title — hand written vibe */
+    .handwritten-title {
+      font-size: 2.5rem;
+      font-weight: 400;
+      font-family: 'Georgia', 'Times', cursive;
+      text-align: center;
+      color: #6e4f3a;
+      letter-spacing: 2px;
+      word-spacing: 8px;
+      text-shadow: 2px 2px 0 rgba(230, 200, 180, 0.6);
+      border-bottom: 2px dashed #c9ad9a;
+      padding-bottom: 0.75rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .handwritten-title span {
+      background: #ffe9dd;
+      padding: 0.2rem 1rem;
+      border-radius: 40px 8px 40px 8px;
+      font-size: 1.2rem;
+      display: inline-block;
+      margin-top: 8px;
+      border: 1px solid #c4a392;
+    }
+
+    /* --- photo gallery vintage grid --- */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin: 2.5rem 0 2rem;
+      padding: 0.5rem;
+    }
+
+    .photo-card {
+      background: #fefcf5;
+      padding: 0.8rem 0.8rem 1.2rem 0.8rem;
+      box-shadow: 8px 8px 0 rgba(170, 140, 120, 0.2);
+      border: 1px solid #dac0ac;
+      transform: rotate(0.5deg);
+      transition: all 0.25s ease;
+      border-radius: 4px 20px 4px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .photo-card:hover {
+      transform: rotate(0deg) scale(1.02);
+      box-shadow: 12px 12px 0 rgba(140, 100, 80, 0.15);
+      border-color: #b38670;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 4px 16px 4px 16px;
+      border: 2px solid #eadbd0;
+      filter: sepia(0.4) contrast(0.95) brightness(1.05);
+      transition: filter 0.4s;
+    }
+
+    .photo-card img:hover {
+      filter: sepia(0.2) contrast(1.02) brightness(1.08);
+    }
+
+    .polaroid-caption {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      font-family: 'Courier New', monospace;
+      color: #6f4e3a;
+      letter-spacing: 1.5px;
+      border-top: 1px dotted #bda797;
+      padding-top: 8px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* --- love letter — well hand written, lined paper illusion --- */
+    .letter-container {
+      background: #fff9f1;
+      padding: 2.2rem 1.8rem;
+      margin: 2.8rem 0 1.8rem;
+      border: 1px solid #e4cfc1;
+      border-left: 6px solid #dbb7a2;
+      box-shadow: inset 0 0 0 2px #fef3ea, inset 0 0 0 4px #fffcf7;
+      font-family: 'KaiTi', 'Georgia', 'Brush Script MT', cursive;
+      position: relative;
+      border-radius: 0 24px 0 24px;
+    }
+
+    /* imitation of handwriting lines — soft */
+    .letter-content {
+      background: repeating-linear-gradient(
+        rgba(235, 215, 200, 0.2) 0px,
+        rgba(235, 215, 200, 0.2) 2px,
+        transparent 2px,
+        transparent 28px
+      );
+      line-height: 32px;  
+      font-size: 1.25rem;
+      color: #3b2c22;
+      font-weight: 450;
+      text-shadow: 0.5px 0.5px 0 white;
+      padding: 0.4rem 0.8rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      letter-spacing: 0.4px;
+    }
+
+    .letter-content p {
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: baseline;
+    }
+
+    .emoji-large {
+      font-size: 1.8rem;
+      margin-right: 6px;
+    }
+
+    .signature {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 2.2rem;
+      text-align: right;
+      margin-top: 0.8rem;
+      color: #7a5a48;
+      border-top: 1px dashed #bfa395;
+      padding-top: 0.8rem;
+    }
+
+    /* audio player — vintage mini, discreet */
+    .music-box {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      gap: 16px;
+      background: rgba(255, 235, 220, 0.5);
+      padding: 12px 20px;
+      border-radius: 40px 8px 40px 8px;
+      border: 1px solid #cdaa94;
+      color: #5a3f33;
+    }
+
+    .music-box span {
+      font-size: 1.3rem;
+    }
+
+    audio {
+      opacity: 0.8;
+      filter: sepia(0.6) grayscale(0.2) brightness(0.9);
+      height: 36px;
+      width: 200px;
+    }
+
+    /* small hand-drawn elements */
+    .floating-heart {
+      font-size: 1.6rem;
+      display: inline-block;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .credit {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #8e7262;
+      letter-spacing: 4px;
+      border-top: 1px dotted #d6bcad;
+      padding-top: 24px;
+    }
+
+    /* responsiveness */
+    @media (max-width: 600px) {
+      .vintage-frame { padding: 1.5rem; }
+      .handwritten-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="vintage-frame">
+
+    <!-- ✦ TITLE with cute emojis / names ✦ -->
+    <div class="handwritten-title">
+      𓆸 for my Tanu (Ainoor) 𓆸
+      <br><span>🧡  Subho’s heart, all yours  🧡</span>
+    </div>
+
+    <!-- === 7 PHOTOS – vintage polaroid aesthetic, with sepia & animations === -->
+    <div class="gallery">
+      <!-- photo 1 · dreamy -->
+      <div class="photo-card">
+        <img src="https://placecats.com/300/200?random=101" alt="Tanu memory 1">
+        <div class="polaroid-caption">🌸 2 years ago · crush</div>
+      </div>
+      <!-- photo 2 · soft smile -->
+      <div class="photo-card">
+        <img src="https://placecats.com/300/201?random=102" alt="Tanu memory 2">
+        <div class="polaroid-caption">🌼 you looked away</div>
+      </div>
+      <!-- photo 3 · golden hour -->
+      <div class="photo-card">
+        <img src="https://placecats.com/301/200?random=103" alt="Tanu memory 3">
+        <div class="polaroid-caption">✨ golden light</div>
+      </div>
+      <!-- photo 4 · candid -->
+      <div class="photo-card">
+        <img src="https://placecats.com/302/202?random=104" alt="Tanu memory 4">
+        <div class="polaroid-caption">🍂 that day</div>
+      </div>
+      <!-- photo 5 · gentle -->
+      <div class="photo-card">
+        <img src="https://placecats.com/299/203?random=105" alt="Tanu memory 5">
+        <div class="polaroid-caption">💭 made me shy</div>
+      </div>
+      <!-- photo 6 · dream -->
+      <div class="photo-card">
+        <img src="https://placecats.com/303/198?random=106" alt="Tanu memory 6">
+        <div class="polaroid-caption">🌙 5 months ago</div>
+      </div>
+      <!-- photo 7 · my favorite -->
+      <div class="photo-card">
+        <img src="https://placecats.com/304/199?random=107" alt="Tanu memory 7">
+        <div class="polaroid-caption">🧸 my gf now</div>
+      </div>
+    </div>
+
+    <!-- === HAND-WRITTEN LOVE LETTER (vintage, emotional, with emojis) === -->
+    <div class="letter-container">
+      <div class="letter-content">
+        <p><span class="emoji-large">💌</span> My dearest Tanu (Ainoor),</p>
+        <p>For two years, you were the beautiful dream I couldn’t look away from — my secret crush, my morning muse. And now, for five months, you’ve been my girlfriend, my heart’s home. 🥺🏡✨</p>
+        <p>I still remember the first time I saw you — time didn’t stop, it just became softer, warmer. You had this light, like vintage film; golden and unforgettable. Every photo of you holds a whole season of feelings. I looked at you from afar, wrote your name in my notebook, and hoped.💘</p>
+        <p>Now I get to hold your hand, call you mine, and smile at you without looking away. Tanu — Ainoor — you are my yesterday’s wish and today’s sweetest truth. These 7 photos are pieces of my memory, but you in my life is the whole gallery. 🌷🎞️</p>
+        <p>I made this little world for you — with our song, ‘those eyes’, and papery textures, and all the vintage warmth you love. Because loving you feels like an old poem, a sepia photograph, a melody that never fades. </p>
+        <p>Yours, in every lifetime,<br><span class="signature">Subho 🩵</span></p>
+      </div>
+    </div>
+
+    <!-- === BG MUSIC: "those eyes" · hidden autoplay with vintage controls === -->
+    <div class="music-box">
+      <span class="floating-heart">🎶</span>
+      <span style="font-family: 'Courier New'; font-weight: 600;">those eyes · our song</span>
+      <!-- bg music "Those Eyes" – audio file from Pixabay (free, melancholic piano) 
+           loops softly, vintage vibes. Autoplay + low volume -->
+      <audio controls autoplay loop>
+        <!-- using a piano instrumental that matches "those eyes" mood – named accordingly.
+             this is a copyright‑free melancholy piano track from Pixabay -->
+        <source src="https://cdn.pixabay.com/download/audio/2022/02/22/audio_d1718ab41b.mp3?filename=melancholy-piano-116941.mp3" type="audio/mpeg">
+        Your browser does not support the audio element. play "Those Eyes" in your heart.
+      </audio>
+      <span>🎧 ✧</span>
+    </div>
+
+    <!-- tiny footnote, emojis, vintage credit -->
+    <div class="credit">
+      <span>☕️  🕯️  for Tanu, from Subho  🕯️  ☕️</span>
+      <br><span style="font-size: 1.2rem;">🧁     made with 7 photos + 2 years of crush + 5 months of love     🧁</span>
+    </div>
+  </div>
+
+  <!-- minor auto adjust: ensure images are unique (placecats generates different cats; but they represent HER photos) 
+       we replace via alt text; BUT you MUST replace src with TANU's real photos when deploying. 
+       For demonstration I use placeholder cat images (vintage vibe) — just swap the URLs with Tanu’s 7 pictures. -->
+  <script>
+    (function() {
+      // subtle vintage animation: add tiny random rotation to each polaroid on load
+      const cards = document.querySelectorAll('.photo-card');
+      cards.forEach((card, index) => {
+        const rot = (index % 2 === 0 ? 0.7 : -0.5) + (Math.random() * 0.6 - 0.3);
+        card.style.transform = `rotate(${rot}deg)`;
+        card.style.transition = 'transform 0.25s ease, box-shadow 0.3s';
+      });
+
+      // message for gf: gentle console love letter (shh, little detail)
+      console.log("%c🌸 For Tanu (Ainoor) — these 7 photos are placeholders. replace with her real images 🌸", "background: #fbe9e0; color: #6e4f3a; font-size: 12px; padding: 6px; border-radius: 8px;");
+      console.log("%c💌 Subho built this vintage world for you. love letter inside. 💌", "background: #f2dfd1; color: #4f352b; font-size: 13px;");
+    })();
+  </script>
+
+  <!-- instructions to replace photos directly inside GitHub -->
+  <!-- 
+    ★ GITHUB EASIEST WAY ★ 
+    1. save this file as index.html 
+    2. create a new repository, upload index.html + your 7 Tanu photos (rename image1.jpg, etc)
+    3. edit the img src="..." to point to your photos, e.g. src="tanu1.jpg"
+    4. commit & push; go to settings → pages → deploy from main branch 
+    5. after 1 min, your site is LIVE: https://yourusername.github.io/repo-name
+    (no extra tools needed! pure html/css)
+  -->
+</body>
+</html>
